@@ -1,12 +1,12 @@
 # FastAPI SSE Neo4j MCP
 
-A FastAPI application using SSE (Server-Sent Events) as a transport layer for Neo4j's Cypher MCP (Model Context Protocol). Uses Poetry for virtual environment and dependency management which is compatible for deployment to [Render.com](https://render.com/).
+A FastAPI application using SSE (Server-Sent Events) as a transport layer for Neo4j's Cypher MCP (Model Context Protocol). Uses Python 3.11 and Poetry for virtual environment and dependency management which is compatible for deployment to [Render.com](https://render.com/).
 
 ## Requirements
 
-- Python 3.12+
-- FastAPI 0.115.11+
-- MCP 1.4.1+
+- Python 3.11+
+- FastAPI 0.115.12+
+- MCP 1.9.2+
 - Poetry 1.8.4+ for dependency management
 
 ## Installation
