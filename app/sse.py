@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 from mcp.server.sse import SseServerTransport
 from starlette.applications import Starlette
-from starlette.routing import Mount, Route
+from starlette.routing import Mount, Route, Path
 
 
 def create_sse_server(mcp: FastMCP):
@@ -19,7 +19,8 @@ def create_sse_server(mcp: FastMCP):
 
     # Create Starlette routes for SSE and message handling
     routes = [
-        Route("/sse/", endpoint=handle_sse),
+        # Handle both /sse and /sse/ with a path regex
+        Route("/sse{path:path}", endpoint=handle_sse),
         Mount("/messages/", app=transport.handle_post_message),
     ]
 

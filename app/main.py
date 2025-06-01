@@ -5,8 +5,8 @@ from mcp.server.fastmcp import FastMCP
 app = FastAPI()
 mcp = FastMCP("Echo")
 
-# Mount the Starlette SSE server onto the FastAPI app at /sse
-app.mount("/sse", create_sse_server(mcp))
+# Mount the Starlette SSE server onto the FastAPI app at the root path
+app.mount("/", create_sse_server(mcp))
 
 
 @app.get("/")
