@@ -18,10 +18,10 @@ poetry install
 Start the FastAPI server:
 
 ```bash
-poetry run uvicorn app.main:app --reload
+poetry run uvicorn app.main:app --host 0.0.0.0 --port 4000 --reload
 ```
 
-The server will be available at http://127.0.0.1:8000.
+The server will be available at http://127.0.0.1:4000.
 
 ## API Endpoints
 
