@@ -5,8 +5,8 @@ from mcp.server.fastmcp import FastMCP
 app = FastAPI()
 mcp = FastMCP("Echo")
 
-# Mount the Starlette SSE server onto the FastAPI app
-app.mount("/", create_sse_server(mcp))
+# Mount the Starlette SSE server onto the FastAPI app at /sse
+app.mount("/sse", create_sse_server(mcp))
 
 
 @app.get("/")
@@ -30,3 +30,11 @@ def echo_prompt(message: str) -> str:
 def echo_resource(message: str) -> str:
     """Echo a message as a resource"""
     return f"Resource echo: {message}"
+
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    
+    port = int(os.getenv("PORT", 4000))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port, reload=True)
